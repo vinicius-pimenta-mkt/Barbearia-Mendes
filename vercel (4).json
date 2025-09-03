@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "Dockerfile",
+      "use": "@vercel/docker",
+      "config": { "maxLambdaSize": "15mb" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "DashboardBarber/src/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "DashboardBarber/src/main.py"
+    }
+  ]
+}
+
+
